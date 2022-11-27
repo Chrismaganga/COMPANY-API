@@ -1,25 +1,34 @@
-from pyexpat import model
-from blog.models import Register, Membership, Company
+from blog.models import CompanyProfile, UserProfile
 from rest_framework import serializers
 
 
-class RegisterSerializer(serializers.ModelSerializer): 
+class CompanyProfileSerializer(serializers.ModelSerializer): 
      class Meta:
-         model = Register
-         fields = '__all__'
+         model = CompanyProfile
+         fields = [
+            'username',
+            'company_id',
+            'company_name'
+         ]
 
         
  
  
-class MembershipSerializer(serializers.ModelSerializer):
+class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Membership
-        fields = '__all__'
+        model = UserProfile
+        fields = [
+            'company_name',
+            'company_id',
+            'username',
+            'name',
+            'surname',
+            'email',
+            'password',
+            'rank'
+        ]
     
     
      
-class CompanySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Company
-        fields = '__all__'
+
     
